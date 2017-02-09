@@ -4,12 +4,13 @@ import os.path
 
 #path to directory containing images
 path = "/home/ubuntu/workspace/Project1/Project1Images"
-
+im = Image.open("/home/ubuntu/workspace/Project1Images/1.png")
+Image.show()
 #Creates an image list
 imgList = [] 
 
-for i in range(9):
-    imgList.append(Image.open("Project1Images/" + str(i+1) + ".png")))
+#for i in range(9):
+ #   imgList.append(Image.open("Project1Images/" + str(i+1) + ".png")))
 
 #makePicture creates a picture object
 
@@ -58,10 +59,10 @@ for x in range(0, height):
     greenPixel = []
     bluePixel = []
     
-    for i in range(0,9)
+    for i in range(0,9):
         redPixel.append(getRed(getPixel(pics[i],x,y))
-        greenPixel.append(getGreen(getPixel(pics[i],x,y)))
-        bluePixel.append(getBlue(getPixel(pics[i],x,y)))
+        greenPixel.append(getGreen(getPixel(pics[i],x,y))
+        bluePixel.append(getBlue(getPixel(pics[i],x,y))
         
         redPixel = sorted(redPixel)
         greenPixel = sorted(greenPixel)
