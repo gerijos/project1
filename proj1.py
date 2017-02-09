@@ -1,56 +1,81 @@
 from PIL import Image
 
+img = []
 #path to directory containing images
-pics = Image.open("./Project1Images/1.png")
-pics = Image.open("./Project1Images/2.png")
-pics = Image.open("./Project1Images/3.png")
-pics = Image.open("./Project1Images/4.png")
-pics = Image.open("./Project1Images/5.png")
-pics = Image.open("./Project1Images/6.png")
-pics = Image.open("./Project1Images/7.png")
-pics = Image.open("./Project1Images/8.png")
-pics = Image.open("./Project1Images/9.png")
+img.append(Image.open("./Project1Images/1.png"))
+img.append(Image.open("./Project1Images/2.png"))
+img.append(Image.open("./Project1Images/3.png"))
+img.append(Image.open("./Project1Images/4.png"))
+img.append(Image.open("./Project1Images/5.png"))
+img.append(Image.open("./Project1Images/6.png"))
+img.append(Image.open("./Project1Images/7.png"))
+img.append(Image.open("./Project1Images/8.png"))
+img.append(Image.open("./Project1Images/9.png"))
+
 
 def median(imageList):
     median = 0
-    #store list length in the variable listLength
-    listLength = len(imageList)
-    #sort the list
-    sortedValues = sorted(imageList)
-    #Location of middle value. Substract one because of zero index
-    sortedValues = sorted(imageList)
-    middleIndex = ((listLength + 1)/2)-1
-    #return the object located that index
-    return sortedValues[middleIndex]
+    sortedList = sorted(imageList)
+    lengthList = len(sortedList)
+    centerIndex = lengthList/2
+    if len(sortedList) == 1:
+        for value in sortedList:
+            median += value
+        return median
     
-for i in range(9):
-    imList.append(Image.open("Project1Images/" + str(i+1) + ".png"))
+    
+    #store list length in the variable listLength
+    #listLength = len(imageList)
+    #sort the list
+   # sortedValues = sorted(imageList)
+    #Location of middle value. Substract one because of zero index
+   # sortedValues = sorted(imageList)
+   # middleIndex = ((listLength + 1)/2)-1
+    #return the object located that index
+  #  return sortedValues[middleIndex]
+    
+    elif len(sortedList) % 2 == 0:
+        temp = 0.0
+        medianparties = []
+        medianparties = sortedList[centerIndex -1 : centerIndex + 1]
+        for value in medianparties:
+            temp += value
+            median = temp /2
+        return median
+        
+    else:
+        middleIndex = []
+        middleIndex = [sortedList[centerIndex]]
+        for value in middleIndex:
+            median = value
+        return median
+    
 
-#Creates an image list
-imList = [] 
+imgwidth,imgheight = img[0].size# this is the size of the picture
 
-#to get the width and height of an image
-width,height = imList[0].size
+newImage = Image.new("RGB",(imgwidth,imgheight),"white")
 
-redPixel = []
-greenPixel = []
-bluePixel = []
+redPixel=[]
+greenPixel=[]# the list and shades of colors of the picture
+bluePixel=[]
 
-myRed, myGreen, myBlue = imList[6].getpixel((2,3))
+for x in range(imgwidth):# x and y are the height and width of the pictures
+     for y in range(imgheight):
+        for i in img:
+            myblue, mygreen, myred = i.getpixel((x,y))
+            redPixel.append(myred)
+            greenPixel.append(mygreen)
+            bluePixel.append(myblue)
 
-print(myRed, myGreen, myBlue)
+        medianRed = median(redPixel)
+        medianGreen = median(greenPixel)# median of the pixelisted
+        medianBlue = median(bluePixel)
 
-#creates new image with the given mode and size -> size is a 2-tuble ordered list
-imageNew = (Image.new('RGB',width, height, 'white'))
+        newImage.putpixel((x,y),(medianRed, medianGreen, medianBlue))
 
-#nested for loop that goes across each column and row
-for x in range (0,width):
-    for y in range(0,height):
-        #access pixels of each image
-            myRed.getmyRed(getpixel(pics[i],(x,y)))
-            myGreen.getmyGreen(getpixel(x,y))
-            myBlue.append(getmyBlue(getpixel(x,y))
-           
-Newimage = Images.save("imageNew.png")
-           
-           
+        redPixel =[]
+        greenPixel =[]
+        bluePixel = []
+        
+newImage.save("final.png")# the final picture
+
