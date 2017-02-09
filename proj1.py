@@ -13,19 +13,23 @@ img.append(Image.open("./Project1Images/8.png"))
 img.append(Image.open("./Project1Images/9.png"))
 
 
+#to find the midian
 def median(imageList):
     median = 0
+    #Sorts the list 
     sortedList = sorted(imageList)
+    #store list length in the variable lenghtlist
     lengthList = len(sortedList)
+    #location of middle value
     centerIndex = lengthList/2
     if len(sortedList) == 1:
         for value in sortedList:
             median += value
         return median
     
-    
-    #store list length in the variable listLength
-    #listLength = len(imageList)
+#example provided by the teacher   
+#store list length in the variable listLength
+  #listLength = len(imageList)
     #sort the list
    # sortedValues = sorted(imageList)
     #Location of middle value. Substract one because of zero index
@@ -34,6 +38,7 @@ def median(imageList):
     #return the object located that index
   #  return sortedValues[middleIndex]
     
+    #to find the median 
     elif len(sortedList) % 2 == 0:
         temp = 0.0
         medianparties = []
@@ -50,16 +55,18 @@ def median(imageList):
             median = value
         return median
     
-
-imgwidth,imgheight = img[0].size# this is the size of the picture
+# this is the size of the picture
+imgwidth,imgheight = img[0].size
 
 newImage = Image.new("RGB",(imgwidth,imgheight),"white")
 
+# the list and shades of colors of the picture
 redPixel=[]
-greenPixel=[]# the list and shades of colors of the picture
+greenPixel=[]
 bluePixel=[]
 
-for x in range(imgwidth):# x and y are the height and width of the pictures
+# x and y are the height and width of the pictures
+for x in range(imgwidth):
      for y in range(imgheight):
         for i in img:
             myblue, mygreen, myred = i.getpixel((x,y))
@@ -76,6 +83,8 @@ for x in range(imgwidth):# x and y are the height and width of the pictures
         redPixel =[]
         greenPixel =[]
         bluePixel = []
-        
-newImage.save("final.png")# the final picture
+
+# the final picture        
+newImage.save("final.png")
+
 
