@@ -50,7 +50,7 @@ for x in range(0,width):
             show(newImaePixel)
 ############            
 
-#new image to put average pixels 
+#new image to put average pixels -> this gives the dimensions equal to that of the pixels of the image(matrix)
 newImageGrayScale = emptyImage(width,height)
 
 for x in range(0, height):
