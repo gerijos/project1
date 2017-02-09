@@ -1,3 +1,21 @@
+from PIL import Image
+import os.path
+
+
+#path to directory containing images
+path = "/home/ubuntu/workspace/Project1/Project1Images"
+
+#Creates an image list
+imgList = [] 
+
+for i in range(9):
+    imgList.append(Image.open("Project1Images/" + str(i+1) + ".png")))
+
+#makePicture creates a picture object
+
+imgList = Image.open('')
+
+#########
 #nested loop that goes through each row and coloum of each image
 for x in range(0,width):
     for y in range(0,height):
@@ -14,21 +32,41 @@ for x in range(0,width):
             
             #list is sorted for a list with an odd number of items -> middle value is "median"
             redPixel = sorted(redPixel)
+            greenPixel = sorted(greenPixel)
+            bluePixel = sorted(bluePixel)
             
+            #assigns the empty pixels to newImage
+            newImagePixel = getPixel(newImagePixel,x,y)
             
+            #median equation -> where position m is equal to the number of pictures (9) -> index starts at 0
+            m = ((9+1)/2)
             
-from PIL import Image
-import os.path
+            #assigns the RGB pixels value from RGBPixel[4] -> expression towards set
+            setRed(newImagePixel,redPixel[m])
+            setGreen(newImaePixel,greenPixel[m])
+            setBlue(newImaePixel,greenPixel[m])
+            
+            #shows new image with the person removed
+            show(newImaePixel)
+############            
 
-#path to directory containing images
-path = "/home/ubuntu/workspace/Project1/Project1Images"
+#new image to put average pixels 
+newImageGrayScale = emptyImage(width,height)
 
-#Creates an image list
-imgList = [] 
-
-for i in range(9):
-    imgList.append(Image.opne("Project1Images/" + str(i+1) + ".png")))
-
-#makePicture creates a picture object
-
-imgList = Image.open('')
+for x in range(0, height):
+    redPixel = []
+    greenPixel = []
+    bluePixel = []
+    
+    for i in range(0,9)
+        redPixel.append(getRed(getPixel(pics[i],x,y))
+        greenPixel.append(getGreen(getPixel(pics[i],x,y)))
+        bluePixel.append(getBlue(getPixel(pics[i],x,y)))
+        
+        redPixel = sorted(redPixel)
+        greenPixel = sorted(greenPixel)
+        bluePixel = sorted(greenPixel)
+        
+        m = ((9+1)/2)
+        
+        redPixel =
