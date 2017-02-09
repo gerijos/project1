@@ -11,7 +11,7 @@ pics = Image.open("./Project1Images/7.png")
 pics = Image.open("./Project1Images/8.png")
 pics = Image.open("./Project1Images/9.png")
 
-def medianOdd(imageList):
+def median(imageList):
     median = 0
     #store list length in the variable listLength
     listLength = len(imageList)
@@ -22,13 +22,15 @@ def medianOdd(imageList):
     middleIndex = ((listLength + 1)/2)-1
     #return the object located that index
     return sortedValues[middleIndex]
+    
+for i in range(9):
+    imList.append(Image.open("Project1Images/" + str(i+1) + ".png"))
 
 #Creates an image list
 imList = [] 
 
 #to get the width and height of an image
-width = imList[0].size
-height = imList[1].size
+width,height = imList[0].size
 
 redPixel = []
 greenPixel = []
@@ -44,17 +46,11 @@ imageNew = (Image.new('RGB',width, height, 'white'))
 #nested for loop that goes across each column and row
 for x in range (0,width):
     for y in range(0,height):
-        #for loop to access pixels of each image
-        for i in range(0,9):
-            redPixel.append(getmyRed(getpixel(pics[i](x,y)))
-            greenPixel.append(getmyGreen(myImage.getpixel((x,y)))
-            bluePixel.append(getmyBlue(myImage.getpixel((x,y)))
+        #access pixels of each image
+            myRed.getmyRed(getpixel(pics[i],(x,y)))
+            myGreen.getmyGreen(getpixel(x,y))
+            myBlue.append(getmyBlue(getpixel(x,y))
            
-            
-        
-        
-        
-            
-            
-            
-            
+Newimage = Images.save("imageNew.png")
+           
+           
